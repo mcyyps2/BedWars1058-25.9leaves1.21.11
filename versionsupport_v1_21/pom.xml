@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" >
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.andrei1058.bedwars</groupId>
+        <artifactId>BedWars1058</artifactId>
+        <version>25.2</version>
+    </parent>
+
+    <artifactId>versionsupport_v1_21</artifactId>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- 编译好的 bedwars-plugin（含 sidebar 24.2 接口与全部 API/Common 类），提供
+             com.andrei1058.bedwars.libs.sidebar.* / api.* / support.version.common.* -->
+        <dependency>
+            <groupId>com.andrei1058.bedwars</groupId>
+            <artifactId>bedwars-plugin</artifactId>
+            <version>25.2</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <!-- leaves-1.21.11 完整服务端 jar（mojang 映射 NMS + craftbukkit 类） -->
+        <dependency>
+            <groupId>com.leavesmc</groupId>
+            <artifactId>leaves</artifactId>
+            <version>1.21.11-R0.1-SNAPSHOT</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <!-- leaves-1.21.11 bukkit API（org.bukkit.* 等，server jar 中不含） -->
+        <dependency>
+            <groupId>org.leavesmc.leaves</groupId>
+            <artifactId>leaves-api</artifactId>
+            <version>1.21.11-R0.1-SNAPSHOT</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <!-- datafixerupper（com.mojang.datafixers.util.Pair 等） -->
+        <dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>datafixerupper</artifactId>
+            <version>8.0.16</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <!-- brigadier（MutableComponent 接口继承的 com.mojang.brigadier.Message） -->
+        <dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>brigadier</artifactId>
+            <version>1.3.10</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <!-- adventure / fastutil（leaves-api 的传递依赖） -->
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-api</artifactId>
+            <version>4.26.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-key</artifactId>
+            <version>4.26.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>it.unimi.dsi</groupId>
+            <artifactId>fastutil</artifactId>
+            <version>8.5.18</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
